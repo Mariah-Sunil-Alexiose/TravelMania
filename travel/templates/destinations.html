@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block title %}: Explore{% endblock %}
+
+{% block content %}
+<h1 class="text-center pt-5">Destinations</h1>
+<div class="container-fluid">
+    <div class="destinrow">
+      <div class="destincolumn">
+        <a href="/country/3"><img src="{{ url_for('static',filename='img/destinations/colosseum.jpg') }}" alt="Colosseum, Italy"/></a>
+        <a href="/country/2"><img src="{{ url_for('static',filename='img/destinations/great_wall_of_china.jpg') }}" alt="Great Wall of China, China"/></a>
+      </div>
+      <div class="destincolumn">
+        <a href="/country/12"><img src="{{ url_for('static',filename='img/destinations/niagara_falls_canada_usa.jpg') }}" alt="Niagara Falls, Canada, USA"></a>
+      </div>
+      <div class="destincolumn">
+        <a href="/country/4"><img src="{{ url_for('static',filename='img/destinations/louvre.jpg') }}" alt="Lovre, Paris"/></a>
+        <a href="/country/1"><img src="{{ url_for('static',filename='img/destinations/the_taj_mahal.jpg') }}" alt="Taj Mahal, India"></a>
+      </div>
+    </div>
+</div>
+{% endblock %}

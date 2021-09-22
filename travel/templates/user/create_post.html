@@ -1,0 +1,19 @@
+{% extends "layout.html" %} 
+
+{% block title %}: Create Posts{% endblock %} 
+
+{% block content%}
+<div class="container pt-5">
+  <h1 class="text-center">Make a Post</h1>
+  <form method="POST">
+    <textarea name="text" id="text" class="form-control"></textarea>
+  </div>
+    <div class="text-center pt-3">
+      <button type="submit" class="btn btn-md btn-primary">Post</button>
+      <a href="{{ url_for('user_views.index') }}"><button type="button" class="btn btn-md btn-secondary">Back</button></a>
+    </div>
+  </form>
+  <br />
+</div>
+  
+{% endblock %}

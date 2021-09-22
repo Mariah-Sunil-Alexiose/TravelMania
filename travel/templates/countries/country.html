@@ -1,0 +1,92 @@
+{% extends 'layout.html' %}
+
+{% block title %}: {{getcountry.name}} {% endblock %}
+
+{% block content %}
+<div class="container pt-5">
+  <h1 class="text-center">{{getcountry.name}}
+    <a href="{{ url_for('user_views.country_posts', id=id) }}"><i class="fas fa-comments float-right"></i></a>
+    <a href="{{ url_for('user_views.create_post', id=id) }}" class="btn btn-sm btn-primary float-right">Create post</a></h1>
+  <nav>
+    <div class="nav nav-tabs nav-justified" id="nav-tab" role="tablist">
+    {% if leisure.count() > 0 %}<button class="nav-link active" id="nav-leisure-tab" data-bs-toggle="tab" data-bs-target="#nav-leisure" type="button" role="tab" aria-controls="nav-leisure" aria-selected="true">Leisure</button>{% endif %}
+    {% if landmarks.count() > 0 %}<button class="nav-link" id="nav-landmarks-tab" data-bs-toggle="tab" data-bs-target="#nav-landmarks" type="button" role="tab" aria-controls="nav-landmarks" aria-selected="false">Landmarks</button>{% endif %}
+    {% if food.count() > 0 %}<button class="nav-link" id="nav-food-tab" data-bs-toggle="tab" data-bs-target="#nav-food" type="button" role="tab" aria-controls="nav-food" aria-selected="false">Food</button>{% endif %}
+    {% if culture.count() > 0 %}<button class="nav-link" id="nav-culture-tab" data-bs-toggle="tab" data-bs-target="#nav-culture" type="button" role="tab" aria-controls="nav-culture" aria-selected="false">Culture</button>{% endif %}
+    {% if adventure.count() > 0 %}<button class="nav-link" id="nav-adventure-tab" data-bs-toggle="tab" data-bs-target="#nav-adventure" type="button" role="tab" aria-controls="nav-adventure" aria-selected="false">Adventure</button>{% endif %}
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-leisure" role="tabpanel" aria-labelledby="nav-leisure-tab">
+      {% for l in leisure %}
+      <div class="imagecontainer">
+        <div class="content">
+            <div class="content-overlay"></div>
+            <img class="content-image" src="{{ url_for('static', filename='img/' + l.image) }}" alt="{{l.name}}">
+            <div class="content-details fadeIn-bottom">
+                <h3 class="content-title">{{l.name}}</h3>
+                <p>{{l.description}}</p> 
+            </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="tab-pane fade" id="nav-landmarks" role="tabpanel" aria-labelledby="nav-landmarks-tab">
+      {% for l in landmarks %}
+      <div class="imagecontainer">
+        <div class="content">
+            <div class="content-overlay"></div>
+            <img class="content-image" src="{{ url_for('static', filename='img/' + l.image) }}" alt="{{l.name}}">
+            <div class="content-details fadeIn-bottom">
+                <h3 class="content-title">{{l.name}}</h3>
+                <p>{{l.description}}</p> 
+            </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="tab-pane fade" id="nav-food" role="tabpanel" aria-labelledby="nav-food-tab">
+      {% for l in food %}
+      <div class="imagecontainer">
+        <div class="content">
+            <div class="content-overlay"></div>
+            <img class="content-image" src="{{ url_for('static', filename='img/' + l.image) }}" alt="{{l.name}}">
+            <div class="content-details fadeIn-bottom">
+                <h3 class="content-title">{{l.name}}</h3>
+                <p>{{l.description}}</p> 
+            </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="tab-pane fade" id="nav-culture" role="tabpanel" aria-labelledby="nav-culture-tab">
+      {% for l in culture %}
+      <div class="imagecontainer">
+        <div class="content">
+            <div class="content-overlay"></div>
+            <img class="content-image" src="{{ url_for('static', filename='img/' + l.image) }}" alt="{{l.name}}">
+            <div class="content-details fadeIn-bottom">
+                <h3 class="content-title">{{l.name}}</h3>
+                <p>{{l.description}}</p> 
+            </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="tab-pane fade" id="nav-adventure" role="tabpanel" aria-labelledby="nav-adventure-tab">
+      {% for l in adventure %}
+      <div class="imagecontainer">
+        <div class="content">
+            <div class="content-overlay"></div>
+            <img class="content-image" src="{{ url_for('static', filename='img/' + l.image) }}" alt="{{l.name}}">
+            <div class="content-details fadeIn-bottom">
+                <h3 class="content-title">{{l.name}}</h3>
+                <p>{{l.description}}</p> 
+            </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

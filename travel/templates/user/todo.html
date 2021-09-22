@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block title %}: Todo{% endblock %}
+
+{% block content %}
+<div class="container pt-5">
+    <h2 style="text-align:center;">Checklist</h2>
+    <h6 style="text-align:center">Want to make a list before your big trip?<br/> Look into your checklist before you leave!</h6>    
+    <ul class="list-group list-group-flush" id="notes">
+        {% for note in user.notes %}
+        <li class="list-group-item">
+        {{ note.data }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onClick="deleteNote({{ note.id }})"></button>
+        </li>
+        {% endfor %}
+    </ul>
+    <form method="POST">
+        <textarea name="note" id="note" class="form-control"></textarea>
+        <br />
+        <div style="text-align:center">
+        <button type="submit" class="btn btn-primary">Add Item</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

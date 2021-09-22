@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block title %}: Explore{% endblock %}
+
+{% block content %}
+
+{% for country in countries %}
+<div class="imagecontainer">
+    <div class="content">
+      <a href="{{ url_for('views.getcountry' , id=country.id) }}">
+        <div class="content-overlay"></div>
+        <img class="content-image" src="{{ url_for('static', filename='img/' + country.image) }}">
+        <div class="content-details fadeIn-bottom">
+          <h3 class="content-title">{{country.name}}</h3>
+          <form method="POST">
+            <a role="button" href="{{ url_for('user_views.newbookmark' , name=country.name) }}" class="btn btn-circle btn-link"><i class="fa fa-bookmark" aria-hidden="true"></i></a>
+          </form>
+        </div>
+      </a>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

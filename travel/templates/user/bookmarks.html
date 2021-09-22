@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block title %}: Bookmarks{% endblock %}
+
+{% block content %}
+<div class="container pt-5">
+  <h1 class="text-center">Bookmarks</h1>
+  <ul class="list-group list-group-flush" id="bookmarks">
+    {% if user.bookmarks|length %}
+      {% for bookmark in user.bookmarks %}
+        <li class="list-group-item">
+          {{ bookmark.country }}
+          <form action="/user/deletebookmark/{{bookmark.id}}" method="POST">
+            <button type="submit" class="btn btn-danger btn-sm float-right">Delete</button>
+          </form>
+        </li>
+      {% endfor %}
+    {% else %}
+      <p class="text-center">No bookmarks added yet!</p>
+    {% endif %}
+  </ul>
+</div>
+{% endblock %}

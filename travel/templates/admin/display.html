@@ -1,0 +1,279 @@
+{% extends "admin/admin_layout.html" %}
+
+{% block title %}: Countries{% endblock %}
+
+{% block content %}
+<div class="container pt-5">
+    {% if countries %}
+    <h2>Countries <a href="{{ url_for('admin_views.add_country') }}" class="btn btn-success link-button">Add country</a></h2>
+    <table class="table table-sm table-condensed table-striped">
+        <thead>
+            <th>Sr</th>
+            <th>Image</th>
+            <th>Country</th>
+            <th>Continent</th>
+            <th>Description</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            {% for country in countries %}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td><img src="{{url_for('static', filename='img/' + country.image)}}" width='60' height='40'></td>
+                <td>{{country.name}}</td>
+                <td>{{country.continent.name}}</td>
+                <td>{{country.description}}</td>
+                <td><a href="{{ url_for('admin_views.update_country', id=country.id) }}" class="btn btn-sm btn-info">Edit</a></td>
+                <td><button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal-{{country.id}}">Delete</button>
+                </td>
+            </tr>
+            <div class="modal fade" id="exampleModal-{{country.id}}" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">{{country.name}}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <span>Are you sure you want to delete {{country.name}}?</span>
+                        </div>
+                        <div class="modal-footer">
+                            <form action="{{ url_for('admin_views.delete_country',id=country.id) }}"method="POST">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+    {% if leisure_items %}
+    <h5>Leisure <a href="{{ url_for('admin_views.add_leisure') }}" class="btn btn-success link-button">Add leisure item</a></h5>
+    <table class="table table-sm table-condensed table-striped">
+        <thead>
+            <th>Sr</th>
+            <th>Image</th>
+            <th>Country</th>
+            <th>Item Name</th>
+            <th>Description</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            {% for leisure_item in leisure_items %}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td><img src="{{url_for('static', filename='img/' + leisure_item.image)}}" width='60' height='40'></td>
+                <td>{{leisure_item.name}}</td>
+                <td>{{leisure_item.country.name}}</td>
+                <td>{{leisure_item.description}}</td>
+                <td><a href="{{ url_for('admin_views.update_leisure', id=leisure_item.id) }}" class="btn btn-sm btn-info">Edit</a></td>
+                <td><button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal-{{leisure_item.id}}">Delete</button></td>
+            </tr>
+            <div class="modal fade" id="exampleModal-{{leisure_item.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">{{leisure_item.name}}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <span>Are you sure you want to delete {{leisure_item.name}}?</span>
+                        </div>
+                        <div class="modal-footer">
+                            <form action="{{ url_for('admin_views.delete_leisure',id=leisure_item.id) }}" method="POST">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+    {% if adventure_items %}
+    <h5>Adventure <a href="{{ url_for('admin_views.add_adventure') }}" class="btn btn-success link-button">Add adventure item</a></h5>
+    <table class="table table-sm table-condensed table-striped">
+        <thead>
+            <th>Sr</th>
+            <th>Image</th>
+            <th>Item Name</th>
+            <th>Country</th>
+            <th>Description</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            {% for adventure_item in adventure_items %}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td><img src="{{url_for('static', filename='img/' + adventure_item.image)}}" width='60' height='40'></td>
+                <td>{{adventure_item.name}}</td>
+                <td>{{adventure_item.country.name}}</td>
+                <td>{{adventure_item.description}}</td>
+                <td><a href="{{ url_for('admin_views.update_adventure', id=adventure_item.id) }}" class="btn btn-sm btn-info">Edit</a></td>
+                <td><button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal-{{adventure_item.id}}">Delete</button></td>
+            </tr>
+            <div class="modal fade" id="exampleModal-{{adventure_item.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">{{adventure_item.name}}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <span>Are you sure you want to delete {{adventure_item.name}}?</span>
+                        </div>
+                        <div class="modal-footer">
+                            <form action="{{ url_for('admin_views.delete_adventure',id=adventure_item.id) }}" method="POST">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+    {% if landmarks_items %}
+    <h5>Landmarks <a href="{{ url_for('admin_views.add_landmarks') }}" class="btn btn-success link-button">Add landmarks item</a></h5>
+    <table class="table table-sm table-condensed table-striped">
+        <thead>
+            <th>Sr</th>
+            <th>Image</th>
+            <th>Item Name</th>
+            <th>Country</th>
+            <th>Description</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            {% for landmarks_item in landmarks_items %}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td><img src="{{url_for('static', filename='img/' + landmarks_item.image)}}" width='60' height='40'></td>
+                <td>{{landmarks_item.name}}</td>
+                <td>{{landmarks_item.country.name}}</td>
+                <td>{{landmarks_item.description}}</td>
+                <td><a href="{{ url_for('admin_views.update_landmarks', id=landmarks_item.id) }}" class="btn btn-sm btn-info">Edit</a></td>
+                <td><button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal-{{landmarks_item.id}}">Delete</button></td>
+            </tr>
+            <div class="modal fade" id="exampleModal-{{landmarks_item.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">{{landmarks_item.name}}</h5>
+                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <span>Are you sure you want to delete {{landmarks_item.name}}?</span>
+                        </div>
+                        <div class="modal-footer">
+                            <form action="{{ url_for('admin_views.delete_landmarks',id=landmarks_item.id) }}" method="POST">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+    {% if food_items %}
+    <h5>Food <a href="{{ url_for('admin_views.add_food') }}" class="btn btn-success link-button">Add food item</a></h5>
+    <table class="table table-sm table-condensed table-striped">
+        <thead>
+            <th>Sr</th>
+            <th>Image</th>
+            <th>Item Name</th>
+            <th>Country</th>
+            <th>Description</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            {% for food_item in food_items %}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td><img src="{{url_for('static', filename='img/' + food_item.image)}}" width='60' height='40'></td>
+                <td>{{food_item.name}}</td>
+                <td>{{food_item.country.name}}</td>
+                <td>{{food_item.description}}</td>
+                <td><a href="{{ url_for('admin_views.update_food', id=food_item.id) }}" class="btn btn-sm btn-info">Edit</a></td>
+                <td><button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal-{{food_item.id}}">Delete</button></td>
+            </tr>
+            <div class="modal fade" id="exampleModal-{{food_item.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">{{food_item.name}}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <span>Are you sure you want to delete {{food_item.name}}?</span>
+                        </div>
+                        <div class="modal-footer">
+                            <form action="{{ url_for('admin_views.delete_food',id=food_item.id) }}"method="POST">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+    {% if culture_items %}
+    <h5>Culture <a href="{{ url_for('admin_views.add_culture') }}" class="btn btn-success link-button">Add culture item</a></h5>
+    <table class="table table-sm table-condensed table-striped">
+        <thead>
+            <th>Sr</th>
+            <th>Image</th>
+            <th>Item Name</th>
+            <th>Country</th>
+            <th>Description</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            {% for culture_item in culture_items %}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td><img src="{{url_for('static', filename='img/' + culture_item.image)}}" width='60' height='40'></td>
+                <td>{{culture_item.name}}</td>
+                <td>{{culture_item.country.name}}</td>
+                <td>{{culture_item.description}}</td>
+                <td><a href="{{ url_for('admin_views.update_culture', id=culture_item.id) }}" class="btn btn-sm btn-info">Edit</a></td>
+                <td><button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal-{{culture_item.id}}">Delete</button></td>
+            </tr>
+            <div class="modal fade" id="exampleModal-{{culture_item.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">{{culture_item.name}}</h5>
+                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <span>Are you sure you want to delete {{culture_item.name}}?</span>
+                        </div>
+                        <div class="modal-footer">
+                            <form action="{{ url_for('admin_views.delete_culture',id=culture_item.id) }}" method="POST">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</div>
+{% endblock content %}

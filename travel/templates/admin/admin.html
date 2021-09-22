@@ -1,0 +1,93 @@
+{% extends 'admin/admin_layout.html' %}
+
+{% block title %}: Admin{% endblock %}
+
+{% block content %}
+<div class="container pt-5">
+    <div class="row">
+        <div class="col">
+            <div class="card ">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Contients</h5>
+                    <div class="buttons text-center pt-2">
+                            <a href="{{ url_for('admin_views.add_continent') }}" class="btn btn-success">Add continent</a>
+                            <a href="{{ url_for('admin_views.continents') }}" class="btn btn-primary">See the list</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Countries</h5>
+                    <div class="buttons text-center pt-2">
+                            <a href="{{ url_for('admin_views.add_country') }}" class="btn btn-success">Add country</a>
+                            <a href="{{ url_for('admin_views.countries') }}" class="btn btn-primary">See the list</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Leisure</h5>
+                    <div class="buttons text-center pt-2">
+                            <a href="{{ url_for('admin_views.add_leisure') }}" class="btn btn-success">Add leisure item</a>
+                            <a href="{{ url_for('admin_views.leisure') }}" class="btn btn-primary">See the list</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col pt-4">
+            <div class="card ">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Landmarks</h5>
+                    <div class="buttons text-center pt-2">
+                            <a href="{{ url_for('admin_views.add_landmarks') }}" class="btn btn-success">Add landmarks item</a>
+                            <a href="{{ url_for('admin_views.landmarks') }}" class="btn btn-primary">See the list</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col pt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Food</h5>
+                    <div class="buttons text-center pt-2">
+                            <a href="{{ url_for('admin_views.add_food') }}" class="btn btn-success">Add food item</a>
+                            <a href="{{ url_for('admin_views.food') }}" class="btn btn-primary">See the list</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col pt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Culture</h5>
+                    <div class="buttons text-center pt-2">
+                            <a href="{{ url_for('admin_views.add_culture') }}" class="btn btn-success">Add culture item</a>
+                            <a href="{{ url_for('admin_views.culture') }}" class="btn btn-primary">See the list</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col pt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Adventure</h5>
+                    <div class="buttons text-center pt-2">
+                            <a href="{{ url_for('admin_views.add_adventure') }}" class="btn btn-success">Add adventure item</a>
+                            <a href="{{ url_for('admin_views.adventure') }}" class="btn btn-primary">See the list</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

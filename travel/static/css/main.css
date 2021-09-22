@@ -1,0 +1,331 @@
+/* Slider */
+.carousel-item{
+    overflow:hidden;
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;
+    width: 100vw;
+    height: 90vh;
+}
+
+.carousel-item:before{
+    content:"";
+    display: block;
+    position: absolute; 
+    background-color:#000;
+    opacity:0.7;
+}
+
+.carousel-caption{
+    bottom: 200px;
+    text-align:left;
+}
+
+.carousel-caption h5{
+    font-size:45px;
+    font-weight: 700;
+}
+
+.carousel-caption p{
+    font-size:20px;
+    top:2rem;
+}
+
+.slider-btn .btn {
+    background-color: aliceblue;
+    border-radius: 25px;
+    padding: 0.4rem 1rem;
+    font-size: 1rem;
+}
+
+.btn .fa-arrow-right{
+    font-size: 12px;
+}
+
+/* Card */
+.image-card{
+    padding-top:100px;
+}
+.card {
+    max-width: 20rem;
+}
+.inner{
+    overflow:hidden;
+}
+
+.inner img{
+    transition:all 1.5s ease;
+}
+
+.inner:hover img{
+    transform: scale(1.5);
+}
+
+/* Footer */
+.links{
+    text-decoration: none;
+}
+
+.social-media{
+    font-size: 23px;
+}
+
+/* Button */
+.link-button{
+    float:right;
+}
+.imagecontainer{
+    padding-top:30px;
+    padding-bottom: 250px;
+    float: left;
+    width: 50%;
+    height:200px;
+}
+
+@media screen and (max-width: 640px){
+.imagecontainer{
+    display: block;
+    width: 100%;
+}
+}
+
+@media screen and (min-width: 900px){
+.imagecontainer{
+    width: 33.33333%;
+}
+}
+
+.imagecontainer .title{
+color: #1a1a1a;
+text-align: center;
+margin-bottom: 10px;
+}
+
+.content {
+position: relative;
+width: 90%;
+max-width: 400px;
+margin: auto;
+overflow: hidden;
+}
+
+.content .content-overlay {
+background: rgba(0,0,0,0.7);
+position: absolute;
+height: 99%;
+width: 100%;
+left: 0;
+top: 0;
+bottom: 0;
+right: 0;
+opacity: 0;
+-webkit-transition: all 0.4s ease-in-out 0s;
+-moz-transition: all 0.4s ease-in-out 0s;
+transition: all 0.4s ease-in-out 0s;
+}
+
+.content:hover .content-overlay{
+opacity: 1;
+}
+
+.content-image{
+width: 100%;
+}
+
+.content-details {
+position: absolute;
+text-align: center;
+padding-left: 1em;
+padding-right: 1em;
+width: 100%;
+top: 50%;
+left: 50%;
+opacity: 0;
+-webkit-transform: translate(-50%, -50%);
+-moz-transform: translate(-50%, -50%);
+transform: translate(-50%, -50%);
+-webkit-transition: all 0.3s ease-in-out 0s;
+-moz-transition: all 0.3s ease-in-out 0s;
+transition: all 0.3s ease-in-out 0s;
+}
+
+.content:hover .content-details{
+top: 50%;
+left: 50%;
+opacity: 1;
+}
+
+.content-details h3{
+color: #fff;
+font-weight: 500;
+letter-spacing: 0.15em;
+margin-bottom: 0.5em;
+text-transform: uppercase;
+}
+.content-details p{
+color: #fff;
+font-size: 0.8em;
+}
+
+.fadeIn-bottom{
+top: 80%;
+}
+.btn-circle {
+width: 30px;
+height: 30px;
+padding: 6px 0px;
+border-radius: 15px;
+text-align: center;
+font-size: 12px;
+line-height: 1.42857;
+background:white;
+cursor:pointer;
+}
+.destinrow {
+display: flex;
+flex-wrap: wrap;
+padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.destincolumn {
+flex: 25%;
+max-width: 33.3%;
+padding: 0 4px;
+}
+
+.destincolumn img {
+margin-top: 8px;
+vertical-align: middle;
+width: 100%;
+filter: grayscale(1) brightness(0.9);
+border-radius: 5px;
+cursor: pointer;
+transition: 0.3s linear;
+}
+.destincolumn img:hover {
+filter: grayscale(0);
+}
+
+.account-img {
+    height: 130px;
+    width: 150px;
+    margin-right: 20px;
+    float: right;
+}
+.account-icon {
+    height: 30px;
+    width: 30px;
+}
+.account-heading {
+    font-size: 2.5rem;
+}
+
+.float-right{
+    float:right;
+}
+.fa-comments{
+    font-size:30px;
+    padding-right: 10px;
+    padding-left: 10px;
+    color:#0275d8;
+}
+
+@media screen and (max-width: 800px) {
+.destincolumn {
+    flex: 50%;
+    max-width: 50%;
+}
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+.destincolumn {
+    flex: 100%;
+    max-width: 100%;
+}
+.destincolumn img {
+    filter: grayscale(0) brightness(1);
+}
+}
+
+@media (max-width: 575.98px) { 
+    .image-card{
+        padding-top: 0px;
+    }
+    .card-padd{
+        padding-bottom: 30px;
+        padding-left: 125px;
+    }
+    .carousel-caption{
+        bottom: 170px;
+        text-align:left;
+    }
+    .carousel-caption h5{
+        font-size:30px;
+        font-weight:700;
+    }
+    .carousel-caption p{
+        font-size:15px;
+        top:2rem;
+    }
+    .slider-btn .btn {
+        background-color: aliceblue;
+        border-radius: 25px;
+        padding: 0.4rem 1rem;
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 767.98px) { 
+    .image-card{
+        margin-top: 50px;
+    }
+    .card-padd{
+        padding-bottom:50px;
+        padding-left:100px;
+    }
+    .carousel-caption{
+        bottom: 130px;
+        text-align:left;
+    }
+    .carousel-caption h5{
+        font-size:30px;
+        font-weight:700;
+    }
+}
+
+@media (max-width: 991.98px) { 
+    .image-card{
+        margin-top: 0;
+    }
+    .card-padd{
+        padding-top:45px;
+    }
+    .carousel-caption{
+        bottom: 130px;
+        text-align:left;
+    }
+}
+
+@media (max-width: 1199.98px) { 
+    .image-card{
+        margin-top: 0;
+    }
+    .card-padd{
+        padding-top:45px;
+    }
+}
+
+@media (max-width: 1399.98px) { 
+    .image-card{
+        margin-top: 0;
+    }
+    .card-padd{
+        padding-top:45px;
+    }
+    .carousel-caption{
+        bottom: 200px;
+        text-align:left;
+    }
+}

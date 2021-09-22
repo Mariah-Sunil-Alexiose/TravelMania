@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+{% block title %}: Login {% endblock %}
+
+{% block content %}
+<h3 class="pt-3" style="text-align: center;">Login</h3>
+<div class="container">
+    <form method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <div class="form-group pt-3">
+                {{ form.email.label(class="form-control-label") }}
+                {% if form.email.errors %}
+                    {{ form.email(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for errors in form.email.errors %}
+                            <span>{{ errors }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.email(class="form-control form-control-lg") }}
+                {% endif %} 
+            </div>
+            <div class="form-group pt-3">
+                {{ form.password.label(class="form-control-label") }}
+                {% if form.password.errors %}
+                    {{ form.password(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for errors in form.password.errors %}
+                            <span>{{ errors }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.password(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-check pt-3">
+                {{ form.remember(class="form-check-input")}}
+                {{ form.remember.label(class="form-check-label") }}
+            </div>
+        </fieldset>
+        <div class="form-group pt-3">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+        <h6 class="text-center pt-3">Don't have an account? <a href="{{ url_for('user_auth.signup') }}">Sign Up</a></h6>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "admin/admin_layout.html" %}
+
+{% block title %}Continents{% endblock %}
+
+{% block content %}
+<div class="container pt-5">
+    <h2>Continents<a href="{{ url_for('admin_views.add_continent') }}" class="btn btn-sm btn-success link-button">Add continent</a></h2>
+    <table class="table table-sm table-condensed table-striped">
+        <thead>
+            <th>Sr</th>
+            <th>Continents</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            {% for continent in continents %}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{continent.name}}</td>
+                <td><a href="{{ url_for('admin_views.update_continent', id=continent.id) }}" class="btn btn-sm btn-info">Edit</a></td>
+                <td><button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal-{{continent.id}}">Delete</button></td>
+            </tr>
+            <div class="modal fade" id="exampleModal-{{continent.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">{{continent.name}}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <span>Are you sure you want to delete {{continent.name}}?</span>
+                        </div>
+                        <div class="modal-footer">
+                            <form action="{{ url_for('admin_views.delete_continent',id=continent.id) }}"method="POST">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

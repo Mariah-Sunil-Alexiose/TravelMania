@@ -1,0 +1,244 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      {% if india %}
+      <img src="{{ url_for('static', filename='img/' + india.image) }}" class="d-block w-100" alt="{{ india.name }}">
+      <div class="carousel-caption">
+        <h5>{{ india.name }}</h5>
+        <p>{{ india.description }}</p>
+        <div class="slider-btn">
+          <a href="{{ url_for('views.getcountry' , id=india.id) }}"><button class="btn">Explore <i class="fas fa-arrow-right"></i></button></a>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+    <div class="carousel-item">
+      {% if usa %}
+      <img src="{{ url_for('static', filename='img/' + usa.image) }}" class="d-block w-100" alt="{{ usa.name }}">
+      <div class="carousel-caption">
+        <h5>{{ usa.name }}</h5>
+        <p>{{ usa.description }}</p>
+        <div class="slider-btn">
+          <a href="{{ url_for('views.getcountry' , id=usa.id) }}"><button class="btn">Explore <i class="fas fa-arrow-right"></i></button></a>
+        </div>
+      </div>      
+      {% endif %}
+    </div>
+    <div class="carousel-item">
+      {% if japan %}
+      <img src="{{ url_for('static', filename='img/' + japan.image) }}" class="d-block w-100" alt="{{ japan.name }}">
+      <div class="carousel-caption">
+        <h5>{{ japan.name }}</h5>
+        <p>{{ japan.description }}</p>
+        <div class="slider-btn">
+          <a href="{{ url_for('views.getcountry' , id=japan.id) }}"><button class="btn">Explore <i class="fas fa-arrow-right"></i></button></a>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<div class="container image-card">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-6 col-lg-4 card-padd">
+      <div class="card shadow">
+        {% if france %}
+        <div class="inner">
+          <img src="{{ url_for('static', filename='img/' + france.image) }}" class="card-img-top" alt="{{france.name}}">
+        </div>
+        <div class="card-body text-center">
+          <h5 class="card-title">{{france.name}}</h5>
+          <p class="card-text">{{ france.description }}</p>
+          <a href="{{ url_for('views.getcountry' , id=france.id) }}" class="btn btn-primary">Learn More</a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 card-padd">
+      <div class="card shadow">
+        {% if italy %}
+        <div class="inner">
+          <img src="{{ url_for('static', filename='img/' + italy.image) }}" class="card-img-top" alt="{{italy.name}}">
+        </div>
+        <div class="card-body text-center">
+          <h5 class="card-title">{{italy.name}}</h5>
+          <p class="card-text">{{ italy.description }}</p>
+          <a href="{{ url_for('views.getcountry' , id=italy.id) }}" class="btn btn-primary">Learn More</a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 card-padd">
+      <div class="card shadow">
+        {% if china %}
+        <div class="inner">
+          <img src="{{ url_for('static', filename='img/' + china.image) }}" class="card-img-top" alt="{{china.name}}">
+        </div>
+        <div class="card-body text-center">
+          <h5 class="card-title">{{china.name}}</h5>
+          <p class="card-text">{{ china.description }}</p>
+          <a href="{{ url_for('views.getcountry' , id=china.id) }}" class="btn btn-primary">Learn More</a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 card-padd">
+      <div class="card shadow">
+        {% if spain %}
+        <div class="inner">
+          <img src="{{ url_for('static', filename='img/' + spain.image) }}" class="card-img-top" alt="{{spain.name}}">
+        </div>
+        <div class="card-body text-center">
+          <h5 class="card-title">{{spain.name}}</h5>
+          <p class="card-text">{{ spain.description }}</p>
+          <a href="{{ url_for('views.getcountry' , id=spain.id) }}" class="btn btn-primary">Learn More</a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    
+    <div class="col-12 col-md-6 col-lg-4 card-padd">
+      <div class="card shadow">
+        {% if indonesia %}
+        <div class="inner">
+          <img src="{{ url_for('static', filename='img/' + indonesia.image) }}" class="card-img-top" alt="{{indonesia.name}}">
+        </div>
+        <div class="card-body text-center">
+          <h5 class="card-title">{{indonesia.name}}</h5>
+          <p class="card-text">{{ indonesia.description }}</p>
+          <a href="{{ url_for('views.getcountry' , id=indonesia.id) }}" class="btn btn-primary">Learn More</a>
+        </div>
+        {% endif %} 
+      </div>
+    </div>
+    
+    <div class="col-12 col-md-6 col-lg-4 card-padd">
+      <div class="card shadow">
+        {% if mexico %}
+        <div class="inner">
+          <img src="{{ url_for('static', filename='img/' + mexico.image) }}" class="card-img-top" alt="{{mexico.name}}">
+        </div>
+        <div class="card-body text-center">
+          <h5 class="card-title">{{mexico.name}}</h5>
+          <p class="card-text">{{ mexico.description }}</p>
+          <a href="{{ url_for('views.getcountry' , id=mexico.id) }}" class="btn btn-primary">Learn More</a>
+        </div>
+        {% endif %} 
+      </div>
+    </div>
+  </div>
+</div>
+<div class="pt-5">
+  <footer class="container-fluid bg-dark text-white pt-5 pb-4">
+    <div class="container text-center text-md-left">
+      <div class="row text-center text-md-left">
+        <div class="col-md-3 col-lg-3 col-xd-3 mx-auto mt-3">
+          <h5 class="text-uppercase mb-4 font-weight-bold text-primary">TravelMania</h5>
+          <p>This website is for the people who don't know where to next on their vacation. <br>Use TravelMania to get the best experience possible for your trip!</p>
+        </div>
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+          <h5 class="text-uppercase mb-4 font-weight-bold text-primary">Products</h5>
+          <p>
+            <a class="text-white links">HTML 5</a>
+          </p>
+          <p>
+            <a class="text-white links">CSS</a>
+          </p>
+          <p>
+            <a class="text-white links">Bootstrap</a>
+          </p>
+          <p>
+            <a class="text-white links">Python</a>
+          </p>
+          <p>
+            <a class="text-white links">Jinja</a>
+          </p>
+          <p>
+            <a class="text-white links">Flask</a>
+          </p>
+          <p>
+            <a class="text-white links">SQLite</a>
+          </p>
+        </div>
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+          <h5 class="text-uppercase mb-4 font-weight-bold text-primary">Useful Links</h5>
+          <p>
+            <a href="{{url_for('admin_auth.login')}}" class="text-white links">Admin Login</a>
+          </p>
+          <p>
+            <a href="{{url_for('admin_auth.signup')}}" class="text-white links">Admin Signup</a>
+          </p>
+          <p>
+            <a href="#" class="text-white links">Source Files</a>
+          </p>
+        </div>
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+          <h5 class="text-uppercase mb-4 font-weight-bold text-primary">Contact</h5>
+          <p>
+            <i class="fas fa-home mr-3"></i> Dubai, UAE
+          </p>
+          <p>
+            <i class="fas fa-envelope mr-3"></i> mariah@gmail.com
+          </p>
+          <p>
+            <i class="fas fa-phone mr-3"></i> +93 74832184
+          </p>
+          <p>
+            <i class="fas fa-print mr-3"></i> +01 565759529602
+          </p>
+        </div>
+      </div>
+      <hr class="mb-4">
+      <div class="row align-items-center">
+        <div class="col-md-7 col-lg-8 text-md-left">
+          <p>Copyright 2020 All rights reserved by: <a href="#" class="links"><strong class="text-primary text-uppercase">Mariah Sunil Alexiose</strong></a></p>
+        </div>
+        <div class="col-md-5 col-lg-4">
+          <div class="text-center text-md-right">
+            <ul class="list-unstyled list-inline">
+              <li class="list-inline-item">
+                <a href="#" class="btn-floating btn-sm text-white social-media"><i class="fab fa-facebook"></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#" class="btn-floating btn-sm text-white social-media"><i class="fab fa-twitter"></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#" class="btn-floating btn-sm text-white social-media"><i class="fab fa-google-plus"></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#" class="btn-floating btn-sm text-white social-media"><i class="fab fa-linkedin-in"></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#" class="btn-floating btn-sm text-white social-media"><i class="fab fa-youtube"></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#" class="btn-floating btn-sm text-white social-media"><i class="fab fa-github"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+</div>
+{% endblock %}

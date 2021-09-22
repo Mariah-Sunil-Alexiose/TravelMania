@@ -1,0 +1,61 @@
+{% extends 'admin/admin_layout.html' %}
+
+{% block title %} Update Landmarks {% endblock %}
+
+{% block content %}
+<h3 class="pt-3 text-center">Update Landmarks Item</h3>
+<div class="container">
+    <form method="post" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <div class="form-group pt-3">
+                {{ form.name.label(class="form-control-label") }}
+                {% if form.name.errors %}
+                    {{ form.name(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for errors in form.name.errors %}
+                            <span>{{ errors }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.name(class="form-control form-control-lg") }}
+                {% endif %} 
+            </div>
+            <div class="form-group pt-3">
+                {{ form.description.label(class="form-control-label") }}
+                {% if form.description.errors %}
+                    {{ form.description(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for errors in form.description.errors %}
+                            <span>{{ errors }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.description(class="form-control form-control-lg") }}
+                {% endif %} 
+            </div>
+            <div class="pt-3">
+                <label for="country">Add country</label>
+                <select name="country" id="country" class="form-control" required>
+                    <option selected hidden value="{{ landmarks.country_id }}">{{ landmarks.country.name }}</option>
+                    {% for country in countries %}
+                    <option value="{{country.id}}">{{ country.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group pt-3">
+                {{ form.image.label() }}</br>
+                {{ form.image(class="form-control-file") }}</br>
+                {% if form.image.errors %}
+                    {% for error in form.image.errors %}
+                    <span class="text-danger">{{ error }}</span></br>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </fieldset>
+        <div class="form-group text-center pt-3">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+</div>
+{% endblock %}
