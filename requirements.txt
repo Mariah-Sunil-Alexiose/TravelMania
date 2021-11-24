@@ -6,3 +6,4 @@ Flask_WTF==0.15.1
 SQLAlchemy==1.4.22
 Werkzeug==2.0.1
 WTForms==2.3.3
+gunicorn
